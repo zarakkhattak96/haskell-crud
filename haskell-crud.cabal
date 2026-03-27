@@ -67,10 +67,17 @@ executable haskell-crud
     -- other-extensions:
 
     -- Other library packages from which modules are imported.
-    build-depends:    base ^>=4.18.3.0
+    build-depends:
+        aeson ^>=2.2,
+        base ^>=4.18.3.0,
+        scotty ^>=0.22,
+        time ^>=1.12
 
     -- Directories containing source files.
     hs-source-dirs:   app
 
     -- Base language which the package is written in.
     default-language: Haskell2010
+
+    -- Scotty/Warp runtime requires threaded runtime for timers.
+    ghc-options: -threaded -rtsopts
